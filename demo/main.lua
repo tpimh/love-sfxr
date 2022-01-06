@@ -1,6 +1,7 @@
 #/usr/bin/env love
 -- love .
 
+package.path = package.path .. ";../?.lua"
 local sfxr = require("sfxr")
 local lf = require('loveframes/loveframes')
 

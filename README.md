@@ -15,10 +15,9 @@ To run the demo application you first need to download
 [LoveFrames](https://github.com/NikolaiResokav/LoveFrames) as a submodule:
 ```
 git submodule update --init
-love demo
+cd demo
+love .
 ```
-Note: Due to LoveFrames only supporting LÖVE 0.9.x, this dependency is inherited
-by the demo. A move to a new GUI framework is pending.
 
 Example usage
 -------------
