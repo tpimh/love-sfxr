@@ -402,11 +402,11 @@ function createActionButtons()
             frt:SetText("sound." .. type)
             frb:SetText("Save")
 
-            love.filesystem.getDirectoryItems("sounds", function(name)
+            for _,name in ipairs(love.filesystem.getDirectoryItems("sounds")) do
                 if name:find(type, #type-#name+1, true) then
                     frl:AddRow(name)
                 end
-            end)
+            end
 
             frb.OnClick = function(o)
                 local name = frt:GetText()
@@ -433,11 +433,11 @@ function createActionButtons()
             frt:SetText("sound." .. type)
             frb:SetText("Load")
 
-            love.filesystem.getDirectoryItems("sounds", function(name)
+            for _,name in ipairs(love.filesystem.getDirectoryItems("sounds")) do
                 if name:find(type, #type-#name+1, true) then
                     frl:AddRow(name)
                 end
-            end)
+            end
 
             frb.OnClick = function(o)
                 local name = frt:GetText()
