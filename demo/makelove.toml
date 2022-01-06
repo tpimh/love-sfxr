@@ -13,6 +13,12 @@ love_files = [
     "-./build*"    # exclude the build folder!
 ]
 
+#~ love_files = [
+#~     "::git-ls-files::",
+#~     "-*/.*",
+#~ ]
+
+
 [hooks]
 prebuild = [
     "cp ../sfxr.lua sfxr.lua",
