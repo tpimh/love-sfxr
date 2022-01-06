@@ -1,3 +1,6 @@
+-- Show output immediately instead of only after program terminates.
+io.stdout:setvbuf("no")
+
 function love.conf(t)
     t.identity = 'sfxrlua'
     t.version = 11.3
