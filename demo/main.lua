@@ -125,7 +125,7 @@ function playSound()
     end
 
     local t = love.timer.getTime()
-    local tab = sound:generateTable(sfxr.FREQ_44100, sfxr.BITS_FLOAT)
+    local tab = sound:generateTable()
     t = love.timer.getTime() - t
     statistics.generation = math.floor(t * 10000) / 10
 
