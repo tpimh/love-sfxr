@@ -1392,6 +1392,15 @@ function sfxr.Sound:load(f)
     end
 end
 
+--- Load the sound parameters from a Lua table
+-- @within Serialization
+-- @tparam {} params table of sound parameters
+function sfxr.Sound:loadTable(params, version)
+    self:resetParameters()
+    -- merge the new table into the own
+    mergetables(self, params)
+end
+
 --- Save the sound parameters to a file in the sfxr binary format (version 102)
 -- @within Serialization
 -- @tparam ?string|file|love.filesystem.File f a path or file in `wb`-mode
