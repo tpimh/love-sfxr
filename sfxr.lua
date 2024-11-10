@@ -858,11 +858,11 @@ end
 -- @raise "invalid sampling rate: x", "invalid bit depth: x"
 function sfxr.Sound:generateSoundData(rate, depth, sounddata)
     rate = rate or 44100
-    depth = depth or 0
+    depth = depth or 16
     assert(sfxr.SAMPLERATE[rate], "invalid sampling rate: " .. tostring(rate))
     assert(sfxr.BITDEPTH[depth] and depth, "invalid bit depth: " .. tostring(depth))
 
-    local tab, count = self:generateTable(rate, depth)
+    local tab, count = self:generateTable(rate)
 
     if count == 0 then
         return nil
