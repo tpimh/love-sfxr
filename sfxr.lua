@@ -795,7 +795,7 @@ function sfxr.Sound:generateTable(rate, depth, tab)
         t[i] = v
         i = i + 1
     end
-    return t, i
+    return t, i - 1
 end
 
 --- Generate the sound to a binary string.
