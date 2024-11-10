@@ -696,7 +696,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-    if key == " " then
+    if key == "space" then
         playSound()
     elseif key == "escape" then
         love.event.push("quit")
