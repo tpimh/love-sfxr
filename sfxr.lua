@@ -870,8 +870,8 @@ function sfxr.Sound:generateSoundData(rate, depth, sounddata)
 
     local data = sounddata or love.sound.newSoundData(count, freq, bits, 1)
 
-    for i = 0, #tab - 1 do
-        data:setSample(i, tab[i + 1])
+    for i = 1, count do
+        data:setSample(i - 1, tab[i])
     end
 
     return data, count
