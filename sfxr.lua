@@ -491,7 +491,7 @@ function sfxr.Sound:generate(rate, depth)
     assert(sfxr.BITDEPTH[depth], "invalid bit depth: " .. tostring(depth))
 
     -- Initialize all locals
-    local fperiod, maxperiod
+    local fperiod, maxperiod, period
     local slide, dslide
     local square_duty, square_slide
     local chg_mod, chg_time, chg_limit
@@ -1212,7 +1212,7 @@ function sfxr.Sound:exportWAV(f, rate, depth)
     end
 
     -- Some utility functions
-    function seek(pos)
+    local function seek(pos)
         if io.type(f) == "file" then
             f:seek("set", pos)
         else
@@ -1220,7 +1220,7 @@ function sfxr.Sound:exportWAV(f, rate, depth)
         end
     end
 
-    function tell()
+    local function tell()
         if io.type(f) == "file" then
             return f:seek()
         else
@@ -1228,7 +1228,7 @@ function sfxr.Sound:exportWAV(f, rate, depth)
         end
     end
 
-    function bytes(num, len)
+    local function bytes(num, len)
         local str = ""
         for i = 1, len do
             str = str .. string.char(num % 256)
@@ -1237,15 +1237,15 @@ function sfxr.Sound:exportWAV(f, rate, depth)
         return str
     end
 
-    function w16(num)
+    local function w16(num)
         f:write(bytes(num, 2))
     end
 
-    function w32(num)
+    local function w32(num)
         f:write(bytes(num, 4))
     end
 
-    function ws(str)
+    local function ws(str)
         f:write(str)
     end
 
@@ -1319,7 +1319,7 @@ function sfxr.Sound:save(f, minify)
     local defaults = sfxr.newSound()
 
     -- this part is pretty awful but it works for now
-    function store(keys, obj)
+    local function store(keys, obj)
         local name = keys[#keys]
 
         if type(obj) == "number" then
@@ -1412,7 +1412,7 @@ function sfxr.Sound:saveBinary(f)
         close = true
     end
 
-    function writeFloat(x)
+    local function writeFloat(x)
         local packed = packIEEE754(x):reverse()
         assert(packed:len() == 4)
         f:write(packed)
