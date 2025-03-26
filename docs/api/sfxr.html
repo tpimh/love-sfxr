@@ -48,7 +48,7 @@
 
 
 <h2>API</h2>
-<ul class="$(kind=='Topics' and '' or 'nowrap'">
+<ul class="nowrap">
   <li><strong>sfxr</strong></li>
 </ul>
 
@@ -133,7 +133,7 @@ together with the <em>awesome</em> <a href="https://love2d.org">LÖVE</a> game f
 	<td class="summary">Generate the sound to a binary string.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#sfxr.Sound:generateSoundData">sfxr.Sound:generateSoundData ([rate=44100[, depth=0[, sounddata]]])</a></td>
+	<td class="name" nowrap><a href="#sfxr.Sound:generateSoundData">sfxr.Sound:generateSoundData ([rate=44100[, depth=16[, sounddata]]])</a></td>
 	<td class="summary">Synthesize the sound to a LÖVE SoundData instance.</td>
 	</tr>
 </table>
@@ -407,7 +407,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
 <h2><a href="#Serialization">Serialization</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#sfxr.Sound:exportWAV">sfxr.Sound:exportWAV (f[, rate=44100[, depth=0]])</a></td>
+	<td class="name" nowrap><a href="#sfxr.Sound:exportWAV">sfxr.Sound:exportWAV (f[, rate=44100[, depth=16]])</a></td>
 	<td class="summary">Generate and export the audio data to a PCM WAVE file.</td>
 	</tr>
 	<tr>
@@ -495,8 +495,8 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
         <li><span class="parameter">SQUARE</span>
          <a href="https://en.wikipedia.org/wiki/Square_wave">square wave</a> (<code>= 0</code>)
         </li>
-        <li><span class="parameter">SAW</span>
-         <a href="https://en.wikipedia.org/wiki/Sawtooth_wave">saw wave</a> (<code>= 1</code>)
+        <li><span class="parameter">SAWTOOTH</span>
+         <a href="https://en.wikipedia.org/wiki/Sawtooth_wave">sawtooth wave</a> (<code>= 1</code>)
         </li>
         <li><span class="parameter">SINE</span>
          <a href="https://en.wikipedia.org/wiki/Sine_wave">sine wave</a> (<code>= 2</code>)
@@ -688,9 +688,9 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"> <span class="keyword">for</span> s <span class="keyword">in</span> sound:generate(<span class="number">44100</span>, <span class="number">0</span>) <span class="keyword">do</span>
-   <span class="comment">-- do something with s
-</span> <span class="keyword">end</span></pre>
+        <pre class="example"><span class="keyword">for</span> s <span class="keyword">in</span> sound:generate(<span class="number">44100</span>, <span class="number">0</span>) <span class="keyword">do</span>
+  <span class="comment">-- do something with s
+</span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -793,7 +793,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Returns:</h3>
     <ol>
         <li>
-           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
         a binary string of sample data</li>
         <li>
            <span class="types"><span class="type">int</span></span>
@@ -808,7 +808,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
 </dd>
     <dt>
     <a name = "sfxr.Sound:generateSoundData"></a>
-    <strong>sfxr.Sound:generateSoundData ([rate=44100[, depth=0[, sounddata]]])</strong>
+    <strong>sfxr.Sound:generateSoundData ([rate=44100[, depth=16[, sounddata]]])</strong>
     </dt>
     <dd>
     Synthesize the sound to a LÖVE SoundData instance.
@@ -824,7 +824,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
         <li><span class="parameter">depth</span>
             <span class="types"><a class="type" href="../index.html#BITDEPTH">BITDEPTH</a></span>
          the bit depth
-         (<em>default</em> 0)
+         (<em>default</em> 16)
         </li>
         <li><span class="parameter">sounddata</span>
             <span class="types"><span class="type">love.sound.SoundData</span></span>
@@ -1655,7 +1655,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <dl class="function">
     <dt>
     <a name = "sfxr.Sound:exportWAV"></a>
-    <strong>sfxr.Sound:exportWAV (f[, rate=44100[, depth=0]])</strong>
+    <strong>sfxr.Sound:exportWAV (f[, rate=44100[, depth=16]])</strong>
     </dt>
     <dd>
     Generate and export the audio data to a PCM WAVE file.
@@ -1664,7 +1664,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">f</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
          a path or file in <code>wb</code>-mode
  (passed files will not be closed)
         </li>
@@ -1676,7 +1676,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
         <li><span class="parameter">depth</span>
             <span class="types"><a class="type" href="../index.html#BITDEPTH">BITDEPTH</a></span>
          the bit depth
-         (<em>default</em> 0)
+         (<em>default</em> 16)
         </li>
     </ul>
 
@@ -1698,7 +1698,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">f</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
          a path or file in <code>w</code>-mode
  (passed files will not be closed)
         </li>
@@ -1725,7 +1725,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">f</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
          a path or file in <code>r</code>-mode
  (passed files will not be closed)
         </li>
@@ -1749,7 +1749,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">f</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
          a path or file in <code>wb</code>-mode
  (passed files will not be closed)
         </li>
@@ -1772,7 +1772,7 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">f</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>, <span class="type">file</span> or <span class="type">love.filesystem.File</span></span>
          a path or file in <code>rb</code>-mode
  (passed files will not be closed)
         </li>
@@ -1791,8 +1791,8 @@ Decay_Sustain_Release_.28ADSR.29_envelope">ASD envelope</a> that controls the so
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
-<i style="float:right;">Last updated 2016-06-12 01:18:55 </i>
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2025-03-26 08:07:51 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

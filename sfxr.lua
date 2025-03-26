@@ -850,7 +850,7 @@ end
 
 --- Synthesize the sound to a LÖVE SoundData instance.
 -- @tparam[opt=44100] SAMPLERATE rate the sampling rate
--- @tparam[opt=0] BITDEPTH depth the bit depth
+-- @tparam[opt=16] BITDEPTH depth the bit depth
 -- @tparam[opt] love.sound.SoundData sounddata a SoundData instance (will be
 -- created if not passed)
 -- @treturn love.sound.SoundData a SoundData instance
@@ -1197,7 +1197,7 @@ end
 -- @tparam ?string|file|love.filesystem.File f a path or file in `wb`-mode
 -- (passed files will not be closed)
 -- @tparam[opt=44100] SAMPLERATE rate the sampling rate
--- @tparam[opt=0] BITDEPTH depth the bit depth
+-- @tparam[opt=16] BITDEPTH depth the bit depth
 -- @raise "invalid sampling rate: x", "invalid bit depth: x"
 function sfxr.Sound:exportWAV(f, rate, depth)
     rate = rate or 44100
